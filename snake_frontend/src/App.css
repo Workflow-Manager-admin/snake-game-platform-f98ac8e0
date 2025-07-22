@@ -1,0 +1,407 @@
+/* CSS Variables for Theme Management */
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #282c34;
+  --text-secondary: #61dafb;
+  --border-color: #e9ecef;
+  --button-bg: #007bff;
+  --button-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #282c34;
+  --text-primary: #ffffff;
+  --text-secondary: #61dafb;
+  --border-color: #404040;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
+}
+
+.App {
+  text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.App-link {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+/* --- Custom Styles for Snake Game Platform --- */
+
+.app-title {
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.main-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 36px;
+  margin: 0 auto;
+  padding: 0 24px;
+  max-width: 1100px;
+  width: 100%;
+}
+.main-content {
+  flex: 2 1 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.side-panel {
+  flex: 1 1 320px;
+  min-width: 260px;
+  max-width: 340px;
+  margin-top: 24px;
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  box-shadow: 0 2px 18px rgba(67,160,71,0.06);
+  padding: 24px 18px;
+}
+
+.snake-game-panel {
+  margin: 12px 0;
+}
+
+.snake-board {
+  display: grid;
+  border: 2.5px solid #43a047;
+  background: #fff;
+  border-radius: 8px;
+  width: 370px;
+  height: 370px;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(67, 160, 71, 0.09);
+  outline: none;
+}
+.snake-cell {
+  box-sizing: border-box;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+}
+.snake-head {
+  background: #43a047;
+  border-radius: 50%;
+}
+.snake-body {
+  background: #72e389;
+}
+.snake-food {
+  background: #ffeb3b;
+  border-radius: 50%;
+  border: 1.5px solid #a8a600;
+}
+
+.game-controls {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+.score-display {
+  font-size: 1.17rem;
+  font-weight: 600;
+  color: #43a047;
+}
+.game-over-panel {
+  margin-top: 8px;
+}
+.game-over-text {
+  color: #c13c21;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  display: block;
+}
+.btn-restart {
+  color: #fff;
+  background: #43a047;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+/* Leaderboard */
+.leaderboard-panel {
+  width: 100%;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.leaderboard-row.highlight {
+  background: #eaf9ed;
+  font-weight: 700;
+}
+
+.leaderboard-table th {
+  color: #43a047;
+  font-size: 1.09rem;
+  font-weight: 650;
+  background: #f7fff7;
+}
+
+.leaderboard-loading {
+  font-size: 1rem;
+  color: #aaa;
+  text-align: center;
+}
+
+/* Profile panel */
+.profile-panel {
+  text-align: left;
+}
+.profile-username {
+  display: block;
+  color: #43a047;
+  font-weight: 600;
+  font-size: 1.14rem;
+}
+.profile-info {
+  margin-bottom: 10px;
+}
+
+/* Auth CSS */
+.auth-panel {
+  margin: 18px 0;
+  width: 310px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 22px rgba(67,160,71,0.06);
+  padding: 22px 28px 18px 28px;
+  text-align: left;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 13px;
+  font-size: 1.05rem;
+  color: #333;
+}
+.auth-form input[type="text"], .auth-form input[type="password"] {
+  width: 100%;
+  padding: 9px 12px;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  border: 1px solid #d0ebe0;
+  border-radius: 7px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+.auth-form h2 {
+  margin-top: 2px;
+  color: #43a047;
+  font-size: 1.32rem;
+}
+.auth-form .btn-primary {
+  width: 100%;
+  background: #43a047;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.09rem;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: background 0.17s;
+}
+.auth-form .btn-primary:hover, .btn-restart:hover {
+  background: #388e3c;
+}
+
+.form-error {
+  color: #c13c21;
+  font-weight: 600;
+  margin-top: 5px;
+  font-size: 0.97rem;
+}
+.form-switch {
+  font-size: 0.97rem;
+  color: #888;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.btn-link {
+  background: transparent;
+  color: #43a047;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: underline;
+  margin-left: 6px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #388e3c;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 6px;
+  padding: 6px 11px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  transition: color 0.15s, background 0.13s;
+}
+.btn-secondary.active, .btn-secondary:hover {
+  background: #eaf9ed;
+  color: #25752d;
+}
+
+/* Score indicator */
+.score-indicator {
+  margin-left: 18px;
+}
+
+/* Controls panel */
+.controls-panel {
+  margin-top: 24px;
+  min-height: 44px;
+}
+
+.app-footer {
+  width: 100%;
+  text-align: center;
+  padding: 18px 0 8px 0;
+  font-size: 1rem;
+  color: #777;
+  margin-top: auto;
+}
+
+/* Responsive for mobile */
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 4vw;
+  }
+  .side-panel {
+    margin-top: 12px;
+    padding: 12px 10px 2px 10px;
+    border-radius: 12px;
+    min-width: unset;
+  }
+}
+@media (max-width: 600px) {
+  .snake-board {
+    width: 96vw;
+    height: 96vw;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 99vw;
+    max-height: 99vw;
+  }
+  .main-layout {
+    padding: 0;
+  }
+  .auth-panel {
+    width: 98vw;
+    min-width: 160px;
+    padding: 10px 8vw;
+  }
+  .side-panel {
+    max-width: unset;
+  }
+}
